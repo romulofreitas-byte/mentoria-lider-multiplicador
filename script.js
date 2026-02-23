@@ -9,6 +9,7 @@ const PROGRESS_PERCENTAGE = 15; // 15% de progresso
 
 // ===== INICIALIZAÇÃO =====
 document.addEventListener('DOMContentLoaded', () => {
+  initVslPopup();
   initHeader();
   initDateAndTime();
   initProgressBar();
@@ -23,6 +24,89 @@ document.addEventListener('DOMContentLoaded', () => {
   initHeroAnimations();
   initCheckout();
 });
+
+// ===== VSL POPUP - VIDEO SALES LETTER =====
+function initVslPopup() {
+  const overlay = document.getElementById('vslOverlay');
+  const video = document.getElementById('vslVideo');
+  const progressFill = document.getElementById('vslProgressFill');
+  const unmuteBtn = document.getElementById('vslUnmuteBtn');
+  const skipBtn = document.getElementById('vslSkipBtn');
+
+  if (!overlay || !video || !progressFill) return;
+
+  // Bloquear scroll da página enquanto o popup está aberto
+  document.body.style.overflow = 'hidden';
+
+  // Função para fechar o popup VSL
+  function closeVslPopup() {
+    if (overlay.classList.contains('closing')) return; // Evitar duplo clique
+    video.pause();
+    progressFill.style.width = '100%';
+    overlay.classList.add('closing');
+    setTimeout(() => {
+      overlay.remove();
+      document.body.style.overflow = '';
+    }, 800);
+  }
+
+  // Mostrar botão "Pular" após 3 segundos (fallback de segurança)
+  setTimeout(() => {
+    if (skipBtn && overlay.parentNode) {
+      skipBtn.classList.add('visible');
+    }
+  }, 3000);
+
+  // Botão de pular/fechar o popup
+  if (skipBtn) {
+    skipBtn.addEventListener('click', closeVslPopup);
+  }
+
+  // Função de easing não-linear para a barra de progresso
+  // Avança rapidamente no início e desacelera no final
+  function easeProgress(realProgress) {
+    return Math.pow(realProgress, 0.4);
+  }
+
+  // Atualizar barra de progresso a cada timeupdate do vídeo
+  video.addEventListener('timeupdate', () => {
+    if (!video.duration || video.duration === 0) return;
+    const realProgress = video.currentTime / video.duration;
+    const visualProgress = easeProgress(realProgress) * 100;
+    progressFill.style.width = `${Math.min(visualProgress, 100)}%`;
+  });
+
+  // Quando o vídeo terminar, fechar o popup
+  video.addEventListener('ended', closeVslPopup);
+
+  // Tentar autoplay com som
+  video.muted = false;
+  const playPromise = video.play();
+
+  if (playPromise !== undefined) {
+    playPromise.then(() => {
+      // Autoplay com som funcionou
+      unmuteBtn.style.display = 'none';
+    }).catch(() => {
+      // Autoplay com som bloqueado pelo browser - iniciar mutado
+      video.muted = true;
+      video.play().catch(() => {
+        // Se mesmo mutado não funcionar, mostrar botão pular imediatamente
+        if (skipBtn) skipBtn.classList.add('visible');
+      });
+      // Exibir botão de ativar som
+      unmuteBtn.style.display = 'flex';
+    });
+  }
+
+  // Botão de ativar som
+  if (unmuteBtn) {
+    unmuteBtn.addEventListener('click', () => {
+      video.muted = false;
+      unmuteBtn.style.display = 'none';
+    });
+  }
+}
 
 // ===== HEADER TECH - SCROLL BEHAVIOR E ANIMAÇÕES =====
 function initHeader() {
@@ -562,43 +646,8 @@ function initHeroAnimations() {
 
 // ===== PARALLAX SCROLL =====
 function initParallax() {
-  // Parallax removido do hero - apenas mantém efeito em cards
-  let ticking = false;
-  
-  function updateParallax() {
-    const windowHeight = window.innerHeight;
-    
-    // Parallax suave apenas em cards durante scroll (hero sem parallax, seções minimalistas sem parallax)
-    const cards = document.querySelectorAll('.beneficio-item, .bonus-feature');
-    cards.forEach(card => {
-      const rect = card.getBoundingClientRect();
-      const cardCenter = rect.top + rect.height / 2;
-      const scrollPosition = windowHeight / 2;
-      const distance = Math.abs(cardCenter - scrollPosition);
-      const maxDistance = windowHeight * 1.5;
-      const depth = Math.max(0, 1 - (distance / maxDistance));
-      
-      if (depth > 0.05 && rect.top < windowHeight && rect.bottom > 0) {
-        const elevation = depth * 8;
-        card.style.transition = 'transform 0.5s ease-out, box-shadow 0.5s ease-out';
-        card.style.transform = `translateY(-${elevation}px)`;
-      } else {
-        card.style.transform = '';
-      }
-    });
-    
-    ticking = false;
-  }
-  
-  function requestTick() {
-    if (!ticking) {
-      window.requestAnimationFrame(updateParallax);
-      ticking = true;
-    }
-  }
-  
-  window.addEventListener('scroll', requestTick, { passive: true });
-  updateParallax();
+  // Parallax removido para melhorar performance de scroll
+  // Os efeitos visuais já são tratados pelo IntersectionObserver e CSS transitions
 }
 
 // ===== BACKGROUNDS DINÂMICOS =====
