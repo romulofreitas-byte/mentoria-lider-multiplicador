@@ -1,0 +1,20 @@
+{
+  "name": "mentoria-lider-multiplicador",
+  "version": "1.0.0",
+  "description": "Página de vendas - Mentoria em Grupo: Líder Multiplicador",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve .",
+    "start": "npx serve ."
+  },
+  "keywords": [
+    "mentoria",
+    "lideranca",
+    "gestao",
+    "multiplier"
+  ],
+  "author": "2BX Assessoria",
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {}
+}

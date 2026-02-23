@@ -1,0 +1,511 @@
+/* ============================================
+   ANIMAÇÕES KEYFRAMES E UTILITÁRIOS
+   ============================================ */
+
+/* Scroll Animations */
+@keyframes scrollUp {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes scrollDown {
+  0% {
+    transform: translateY(-50%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Scroll Horizontal - Faixa de Transformações */
+@keyframes scrollHorizontal {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Shimmer Moderno - Paleta Brendha */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes shimmerModern {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Glow Marrom/Caramelo */
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(129, 84, 51, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(129, 84, 51, 0.5);
+  }
+}
+
+/* Breathe - Gradientes que respiram */
+@keyframes breathe {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+/* Float Subtle - Flutuação suave */
+@keyframes floatSubtle {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+/* Parallax Scroll */
+@keyframes parallaxScroll {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Ripple - Efeito ondulação */
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Gradient Shift - Gradiente que se move */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+    opacity: 0.3;
+  }
+  50% {
+    background-position: 100% 50%;
+    opacity: 0.6;
+  }
+  100% {
+    background-position: 0% 50%;
+    opacity: 0.3;
+  }
+}
+
+/* Depth - Profundidade via sombras */
+@keyframes depth {
+  0%, 100% {
+    box-shadow: 0 4px 16px rgba(129, 84, 51, 0.1),
+                0 2px 8px rgba(129, 84, 51, 0.08);
+  }
+  50% {
+    box-shadow: 0 12px 32px rgba(129, 84, 51, 0.2),
+                0 6px 16px rgba(129, 84, 51, 0.15);
+  }
+}
+
+/* Fade In */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade In Up */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Pulse */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+}
+
+/* Float */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Slide In Right */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Slide In Left */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Rotate */
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Scale In */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Gradient Shine */
+@keyframes gradientShine {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Shimmer Text para palavra Multiplicador */
+@keyframes shimmerText {
+  0% {
+    background-position: 0% center;
+  }
+  50% {
+    background-position: 100% center;
+  }
+  100% {
+    background-position: 0% center;
+  }
+}
+
+/* Progress Bar Shimmer Animation */
+@keyframes progressShimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Progress Pulse - Pulso suave na barra */
+@keyframes progressPulse {
+  0%, 100% {
+    box-shadow: 0 2px 8px rgba(129, 84, 51, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 4px 16px rgba(129, 84, 51, 0.6),
+                0 0 20px rgba(96, 60, 28, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  }
+}
+
+/* Glow Pulse para palavra Multiplicador */
+@keyframes glowPulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 10px rgba(255, 186, 73, 0.5)) 
+            drop-shadow(0 0 20px rgba(255, 186, 73, 0.3));
+    transform: scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 20px rgba(255, 186, 73, 0.8)) 
+            drop-shadow(0 0 30px rgba(255, 186, 73, 0.5));
+    transform: scale(1.02);
+  }
+}
+
+/* Progress Shimmer */
+@keyframes progressShimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Progress Pulse */
+@keyframes progressPulse {
+  0%, 100% {
+    opacity: 1;
+    filter: brightness(1);
+  }
+  50% {
+    opacity: 0.9;
+    filter: brightness(1.1);
+  }
+}
+
+/* Utilities Classes */
+.animate-fadeIn {
+  animation: fadeIn 0.8s ease-out;
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.animate-pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-slideInRight {
+  animation: slideInRight 0.8s ease-out;
+}
+
+.animate-slideInLeft {
+  animation: slideInLeft 0.8s ease-out;
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.5s ease-out;
+}
+
+/* Scroll Animation Classes */
+.scroll-up {
+  animation: scrollUp 30s linear infinite;
+}
+
+.scroll-down {
+  animation: scrollDown 35s linear infinite;
+}
+
+.scroll-up-fast {
+  animation: scrollUp 25s linear infinite;
+}
+
+/* Shimmer Effect Moderno */
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(129, 84, 51, 0.15),
+    transparent
+  );
+  background-size: 200% 100%;
+  animation: shimmerModern 3s infinite;
+}
+
+/* Glow Effect */
+.glow {
+  animation: glow 3s ease-in-out infinite;
+}
+
+/* Animações Modernas 2026 */
+.animate-breathe {
+  animation: breathe 4s ease-in-out infinite;
+}
+
+.animate-floatSubtle {
+  animation: floatSubtle 6s ease-in-out infinite;
+}
+
+.animate-gradientShift {
+  background-size: 200% 200%;
+  animation: gradientShift 8s ease-in-out infinite;
+}
+
+.animate-depth {
+  animation: depth 4s ease-in-out infinite;
+}
+
+/* Pause Animation on Hover */
+.pause-on-hover:hover {
+  animation-play-state: paused;
+}
+
+/* Countdown Pulse */
+@keyframes countdownPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 4px 16px rgba(129, 84, 51, 0.1),
+                0 2px 8px rgba(129, 84, 51, 0.08);
+  }
+  50% {
+    transform: scale(1.02);
+    box-shadow: 0 8px 24px rgba(129, 84, 51, 0.2),
+                0 4px 12px rgba(129, 84, 51, 0.15);
+  }
+}
+
+/* Badge Float */
+@keyframes badgeFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* Progress Sync Animation */
+@keyframes progressSync {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: var(--progress-value, 7%);
+  }
+}
+
+/* Urgency Pulse */
+@keyframes urgencyPulse {
+  0%, 100% {
+    box-shadow: 0 4px 16px rgba(255, 68, 68, 0.4),
+                0 2px 8px rgba(255, 68, 68, 0.3);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 6px 24px rgba(255, 68, 68, 0.6),
+                0 4px 12px rgba(255, 68, 68, 0.5);
+    transform: scale(1.02);
+  }
+}
+
+/* Urgency Pulse Green */
+@keyframes urgencyPulseGreen {
+  0%, 100% {
+    box-shadow: 0 4px 16px rgba(76, 175, 80, 0.4),
+                0 2px 8px rgba(76, 175, 80, 0.3);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 6px 24px rgba(76, 175, 80, 0.6),
+                0 4px 12px rgba(76, 175, 80, 0.5);
+    transform: scale(1.02);
+  }
+}
+
+/* Price Entrance */
+@keyframes priceEntrance {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+  }
+  60% {
+    transform: scale(1.05) translateY(-5px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Particles Float */
+@keyframes particlesFloat {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px);
+    opacity: 0.3;
+  }
+  33% {
+    transform: translateY(-20px) translateX(10px);
+    opacity: 0.5;
+  }
+  66% {
+    transform: translateY(-10px) translateX(-10px);
+    opacity: 0.4;
+  }
+}
+
+/* Magnetic Badge Animation */
+@keyframes magneticGlow {
+  0%, 100% {
+    box-shadow: 0 4px 16px rgba(129, 84, 51, 0.1),
+                0 2px 8px rgba(129, 84, 51, 0.08);
+  }
+  50% {
+    box-shadow: 0 8px 24px rgba(129, 84, 51, 0.25),
+                0 4px 12px rgba(129, 84, 51, 0.2),
+                0 0 30px rgba(255, 186, 73, 0.3);
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
